@@ -1,0 +1,205 @@
+{
+  "dataset": {
+    "name": "Breast Cancer Wisconsin (Diagnostic), UCI #17",
+    "source": "https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic",
+    "loaded_via": "scikit-learn load_breast_cancer (identical UCI dataset); bundled copy in data/breast_cancer.csv",
+    "rows": 569,
+    "features": 30,
+    "classes": {
+      "malignant": 212,
+      "benign": 357
+    },
+    "missing_values": 0,
+    "split": "stratified 80/20, random_state=42",
+    "train_rows": 455,
+    "test_rows": 114,
+    "test_malignant": 42,
+    "note": "Single-site FNA data collected 1995 (Wolberg et al.). No external validation."
+  },
+  "results": {
+    "Logistic Regression": {
+      "accuracy": 0.9649,
+      "precision_malignant": 0.975,
+      "recall_malignant": 0.9286,
+      "f1_malignant": 0.9512,
+      "roc_auc": 0.996,
+      "brier": 0.0213,
+      "confusion_matrix": [
+        [
+          71,
+          1
+        ],
+        [
+          3,
+          39
+        ]
+      ],
+      "false_negatives": 3,
+      "false_positives": 1
+    },
+    "XGBoost": {
+      "accuracy": 0.9649,
+      "precision_malignant": 1.0,
+      "recall_malignant": 0.9048,
+      "f1_malignant": 0.95,
+      "roc_auc": 0.9934,
+      "brier": 0.0204,
+      "confusion_matrix": [
+        [
+          72,
+          0
+        ],
+        [
+          4,
+          38
+        ]
+      ],
+      "false_negatives": 4,
+      "false_positives": 0
+    },
+    "LightGBM": {
+      "accuracy": 0.9737,
+      "precision_malignant": 1.0,
+      "recall_malignant": 0.9286,
+      "f1_malignant": 0.963,
+      "roc_auc": 0.9967,
+      "brier": 0.0254,
+      "confusion_matrix": [
+        [
+          72,
+          0
+        ],
+        [
+          3,
+          39
+        ]
+      ],
+      "false_negatives": 3,
+      "false_positives": 0
+    },
+    "SVM (RBF)": {
+      "accuracy": 0.9737,
+      "precision_malignant": 0.9756,
+      "recall_malignant": 0.9524,
+      "f1_malignant": 0.9639,
+      "roc_auc": 0.9947,
+      "brier": 0.0222,
+      "confusion_matrix": [
+        [
+          71,
+          1
+        ],
+        [
+          2,
+          40
+        ]
+      ],
+      "false_negatives": 2,
+      "false_positives": 1
+    }
+  },
+  "best_model_by_roc_auc": "LightGBM",
+  "threshold_analysis": {
+    "model": "LightGBM",
+    "rows": [
+      {
+        "threshold": 0.5,
+        "precision_malignant": 1.0,
+        "recall_malignant": 0.9286,
+        "f1_malignant": 0.963,
+        "false_negatives": 3,
+        "false_positives": 0
+      },
+      {
+        "threshold": 0.4,
+        "precision_malignant": 1.0,
+        "recall_malignant": 0.9286,
+        "f1_malignant": 0.963,
+        "false_negatives": 3,
+        "false_positives": 0
+      },
+      {
+        "threshold": 0.3,
+        "precision_malignant": 1.0,
+        "recall_malignant": 0.9286,
+        "f1_malignant": 0.963,
+        "false_negatives": 3,
+        "false_positives": 0
+      },
+      {
+        "threshold": 0.2,
+        "precision_malignant": 1.0,
+        "recall_malignant": 0.9286,
+        "f1_malignant": 0.963,
+        "false_negatives": 3,
+        "false_positives": 0
+      },
+      {
+        "threshold": 0.1,
+        "precision_malignant": 1.0,
+        "recall_malignant": 0.9286,
+        "f1_malignant": 0.963,
+        "false_negatives": 3,
+        "false_positives": 0
+      }
+    ]
+  },
+  "calibration": {
+    "model": "LightGBM",
+    "bins": [
+      0.0025,
+      0.6133,
+      0.9982
+    ],
+    "fraction_positive": [
+      0.04,
+      1.0,
+      1.0
+    ],
+    "note": "5 equal-width bins on the test set (n=114); small-sample, indicative only."
+  },
+  "shap_model": "LightGBM",
+  "shap_top10": [
+    {
+      "feature": "worst perimeter",
+      "mean_abs_shap": 2.3183
+    },
+    {
+      "feature": "worst concave points",
+      "mean_abs_shap": 2.0332
+    },
+    {
+      "feature": "mean concave points",
+      "mean_abs_shap": 1.5924
+    },
+    {
+      "feature": "worst concavity",
+      "mean_abs_shap": 1.4798
+    },
+    {
+      "feature": "worst area",
+      "mean_abs_shap": 1.2785
+    },
+    {
+      "feature": "mean texture",
+      "mean_abs_shap": 1.1731
+    },
+    {
+      "feature": "worst texture",
+      "mean_abs_shap": 1.135
+    },
+    {
+      "feature": "area error",
+      "mean_abs_shap": 0.8385
+    },
+    {
+      "feature": "worst radius",
+      "mean_abs_shap": 0.6089
+    },
+    {
+      "feature": "mean smoothness",
+      "mean_abs_shap": 0.5755
+    }
+  ],
+  "runtime_seconds": 1.5
+}
