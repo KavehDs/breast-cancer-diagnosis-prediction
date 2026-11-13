@@ -1,5 +1,7 @@
 # Breast Cancer Diagnosis Prediction
 
+🚀 **Live demo:** [Try the app](https://kwjxdvgpjpiacjq4ehemvd.streamlit.app/)
+
 Classify a breast fine-needle aspirate (FNA) as malignant or benign from
 30 measurements of cell nuclei — and be honest about the three cases the
 best model still misses.
